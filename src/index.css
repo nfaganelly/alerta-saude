@@ -9,24 +9,24 @@ All colors MUST be HSL.
 @layer base {
   :root {
     --background: 0 0% 100%;
-    --foreground: 231 84% 7%;
+    --foreground: 222 84% 4.9%;
 
     --card: 0 0% 100%;
-    --card-foreground: 231 84% 7%;
+    --card-foreground: 222 84% 4.9%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 231 84% 7%;
+    --popover-foreground: 222 84% 4.9%;
 
-    --primary: 231 84% 45%;
+    --primary: 122 39% 49%; /* Verde vibrante Alerta Saúde #4CAF50 */
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 158 64% 52%;
-    --secondary-foreground: 0 0% 100%;
+    --secondary: 220 14% 96%; /* Cinza claro #F5F5F5 */
+    --secondary-foreground: 222 84% 4.9%;
 
-    --muted: 220 13% 95%;
+    --muted: 220 14% 96%;
     --muted-foreground: 215 16% 47%;
 
-    --accent: 158 64% 52%;
+    --accent: 122 39% 49%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84% 60%;
@@ -34,22 +34,22 @@ All colors MUST be HSL.
 
     --border: 220 13% 91%;
     --input: 220 13% 91%;
-    --ring: 231 84% 45%;
+    --ring: 122 39% 49%;
 
-    /* Health theme colors */
-    --health-primary: 231 84% 45%; /* Blue confidence #2563EB */
-    --health-secondary: 158 64% 52%; /* Green health #10B981 */
-    --health-gray: 220 13% 95%; /* Light gray #F3F4F6 */
-    --health-dark: 231 84% 7%; /* Dark graphite #111827 */
+    /* Alerta Saúde theme colors baseado na identidade visual */
+    --health-primary: 122 39% 49%; /* Verde principal #4CAF50 */
+    --health-secondary: 220 14% 96%; /* Cinza claro #F5F5F5 */
+    --health-gray: 220 14% 96%; /* Light gray #F5F5F5 */
+    --health-dark: 222 84% 4.9%; /* Dark text #0A0A0A */
     
     /* Gradients */
-    --gradient-health: linear-gradient(135deg, hsl(var(--health-primary)), hsl(var(--health-secondary)));
+    --gradient-health: linear-gradient(135deg, hsl(var(--health-primary)), hsl(var(--health-primary) / 0.8));
     --gradient-soft: linear-gradient(180deg, hsl(var(--background)), hsl(var(--health-gray)));
     
     /* Shadows */
-    --shadow-soft: 0 4px 12px -4px hsl(var(--health-primary) / 0.1);
-    --shadow-medium: 0 8px 24px -8px hsl(var(--health-primary) / 0.15);
-    --shadow-strong: 0 12px 32px -8px hsl(var(--health-primary) / 0.2);
+    --shadow-soft: 0 2px 8px -2px hsl(var(--health-primary) / 0.1);
+    --shadow-medium: 0 4px 16px -4px hsl(var(--health-primary) / 0.15);
+    --shadow-strong: 0 8px 24px -8px hsl(var(--health-primary) / 0.2);
 
     --radius: 0.5rem;
 
@@ -100,10 +100,10 @@ All colors MUST be HSL.
     --ring: 212 27% 84%;
     
     /* Dark theme health colors */
-    --health-primary: 231 84% 55%;
-    --health-secondary: 158 64% 60%;
-    --health-gray: 217 33% 18%;
-    --health-dark: 231 84% 7%;
+    --health-primary: 122 39% 59%;
+    --health-secondary: 220 14% 15%;
+    --health-gray: 220 14% 15%;
+    --health-dark: 0 0% 98%;
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
     --sidebar-primary: 224.3 76.3% 48%;
@@ -122,5 +122,9 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground;
+  }
+
+  html {
+    scroll-behavior: smooth;
   }
 }

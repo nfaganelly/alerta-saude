@@ -12,8 +12,14 @@ export const FinalCTA = () => {
           </h2>
           
           <Button 
+            onClick={() => {
+              const pricingSection = document.getElementById('pricing');
+              if (pricingSection) {
+                pricingSection.scrollIntoView({ behavior: 'smooth' });
+              }
+            }}
             size="lg" 
-            className="text-xl px-12 py-6 bg-secondary hover:bg-secondary/90 text-white shadow-strong hover:shadow-medium transition-all"
+            className="text-xl px-12 py-6 bg-primary hover:bg-primary/90 text-white shadow-strong hover:shadow-medium transition-all"
           >
             👉 Quero meu acesso agora
           </Button>

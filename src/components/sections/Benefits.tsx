@@ -47,7 +47,16 @@ export const Benefits = () => {
                 Sem contrato fixo, cancele quando quiser.
               </p>
               
-              <Button size="lg" className="shadow-medium hover:shadow-strong transition-all">
+              <Button 
+                onClick={() => {
+                  const pricingSection = document.getElementById('pricing');
+                  if (pricingSection) {
+                    pricingSection.scrollIntoView({ behavior: 'smooth' });
+                  }
+                }}
+                size="lg" 
+                className="shadow-medium hover:shadow-strong transition-all"
+              >
                 Quero meu acesso agora
               </Button>
             </div>

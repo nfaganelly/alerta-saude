@@ -5,6 +5,9 @@ import { PriceBadge } from "@/components/ui/price-badge";
 import { Check } from "lucide-react";
 
 export const Pricing = () => {
+  const handleCheckout = () => {
+    window.open('https://plataforma.alertasaude.com.br/cadastro', '_blank');
+  };
   const individualFeatures = [
     "Consultas ilimitadas",
     "Atendimento 24/7",
@@ -20,7 +23,7 @@ export const Pricing = () => {
   ];
 
   return (
-    <section className="py-20 bg-background">
+    <section id="pricing" className="py-20 bg-background">
       <div className="container mx-auto px-6">
         <div className="text-center mb-12">
           <h2 className="text-4xl font-bold mb-4">Escolha seu plano</h2>
@@ -54,7 +57,11 @@ export const Pricing = () => {
               ))}
             </div>
 
-            <Button className="w-full" size="lg">
+            <Button 
+              onClick={handleCheckout}
+              className="w-full" 
+              size="lg"
+            >
               Quero meu plano agora
             </Button>
           </Card>
@@ -78,7 +85,12 @@ export const Pricing = () => {
               ))}
             </div>
 
-            <Button variant="outline" className="w-full mt-6" size="lg">
+            <Button 
+              onClick={handleCheckout}
+              variant="outline" 
+              className="w-full mt-6" 
+              size="lg"
+            >
               Ver planos família
             </Button>
           </Card>

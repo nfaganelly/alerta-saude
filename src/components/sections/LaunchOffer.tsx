@@ -20,7 +20,16 @@ export const LaunchOffer = () => {
             Depois, volta a R$ 29,90. Não perca esta oportunidade única!
           </p>
 
-          <Button size="lg" className="text-xl px-12 py-6 shadow-strong hover:shadow-medium transition-all">
+          <Button 
+            onClick={() => {
+              const pricingSection = document.getElementById('pricing');
+              if (pricingSection) {
+                pricingSection.scrollIntoView({ behavior: 'smooth' });
+              }
+            }}
+            size="lg" 
+            className="text-xl px-12 py-6 shadow-strong hover:shadow-medium transition-all"
+          >
             🚀 Ativar meu plano agora
           </Button>
         </div>

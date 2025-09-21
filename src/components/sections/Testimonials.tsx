@@ -22,14 +22,14 @@ export const Testimonials = () => {
   ];
 
   return (
-    <section className="py-20 bg-background">
-      <div className="container mx-auto px-6">
-        <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold mb-4">O que nossos usuários dizem</h2>
+    <section className="py-12 md:py-16 lg:py-20 bg-background">
+      <div className="container mx-auto px-4 md:px-6">
+        <div className="text-center mb-8 md:mb-12">
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-4">O que nossos usuários dizem</h2>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          <div className="flex justify-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-center">
+          <div className="flex justify-center order-2 lg:order-1">
             <img 
               src={testimonialsImage}
               alt="Retratos de usuários satisfeitos com o serviço"
@@ -37,14 +37,14 @@ export const Testimonials = () => {
             />
           </div>
 
-          <div className="space-y-6">
+          <div className="space-y-4 md:space-y-6 order-1 lg:order-2">
             {testimonials.map((testimonial, index) => (
-              <Card key={index} className="p-6 border-l-4 border-l-primary">
-                <div className="flex gap-4">
-                  <Quote className="w-8 h-8 text-primary flex-shrink-0" />
+              <Card key={index} className="p-4 md:p-6 border-l-4 border-l-primary hover:scale-105 transition-all duration-300 hover:shadow-medium">
+                <div className="flex gap-3 md:gap-4">
+                  <Quote className="w-6 h-6 md:w-8 md:h-8 text-primary flex-shrink-0" />
                   <div>
-                    <p className="text-lg font-medium mb-3">"{testimonial.quote}"</p>
-                    <p className="text-muted-foreground">
+                    <p className="text-base md:text-lg font-medium mb-2 md:mb-3">"{testimonial.quote}"</p>
+                    <p className="text-sm md:text-base text-muted-foreground">
                       – {testimonial.author}, {testimonial.location}
                     </p>
                   </div>

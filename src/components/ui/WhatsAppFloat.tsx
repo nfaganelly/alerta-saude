@@ -1,3 +1,5 @@
+import whatsappIcon from "@/assets/whatsapp-icon.png";
+
 export const WhatsAppFloat = () => {
   return (
     <a 
@@ -6,7 +8,11 @@ export const WhatsAppFloat = () => {
       target="_blank"
       rel="noopener noreferrer"
     >
-      <span className="text-lg md:text-xl">💬</span>
+      <img 
+        src={whatsappIcon} 
+        alt="WhatsApp" 
+        className="w-5 h-5 md:w-6 md:h-6" 
+      />
       <span className="hidden sm:inline">Fale Conosco</span>
     </a>
   );

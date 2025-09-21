@@ -10,7 +10,7 @@ export const EmotionalValue = () => {
 
   return (
     <section className="py-12 md:py-16 lg:py-20 bg-background">
-      <div className="container mx-auto px-4 md:px-6">
+      <div className="container mx-auto px-4 md:px-6 lg:px-8">
         <div className="text-center">
           <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-6 md:mb-8">Mais do que consultas, você ganha:</h2>
           

@@ -11,6 +11,7 @@ import { EmotionalValue } from "@/components/sections/EmotionalValue";
 import { AIFeatures } from "@/components/sections/AIFeatures";
 import { LaunchOffer } from "@/components/sections/LaunchOffer";
 import { FinalCTA } from "@/components/sections/FinalCTA";
+import { WhatsAppFloat } from "@/components/ui/WhatsAppFloat";
 
 const Index = () => {
   return (
@@ -28,6 +29,7 @@ const Index = () => {
       <AIFeatures />
       <LaunchOffer />
       <FinalCTA />
+      <WhatsAppFloat />
     </div>
   );
 };

@@ -17,7 +17,7 @@ export const Header = () => {
             <img 
               src="https://plataforma.alertasaude.com.br/assets/images/logo.png" 
               alt="Alerta Saúde" 
-              className="h-12 md:h-14 w-auto"
+              className="h-8 md:h-10 lg:h-12 w-auto"
               onError={(e) => {
                 // Fallback para ícone local se a imagem não carregar
                 e.currentTarget.style.display = 'none';
@@ -45,13 +45,6 @@ export const Header = () => {
               Como Funciona
             </button>
           </nav>
-
-          <Button 
-            onClick={scrollToPricing}
-            className="bg-primary hover:bg-primary/90 text-white text-sm md:text-base px-3 py-2 md:px-4 md:py-2"
-          >
-            Começar Agora
-          </Button>
         </div>
       </div>
     </header>

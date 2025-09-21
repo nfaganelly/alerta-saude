@@ -13,10 +13,9 @@ export const FinalCTA = () => {
           
           <Button 
             onClick={() => {
-              const pricingSection = document.getElementById('pricing');
-              if (pricingSection) {
-                pricingSection.scrollIntoView({ behavior: 'smooth' });
-              }
+              const baseUrl = 'https://plataforma.alertasaude.com.br/cadastro';
+              const urlWithUTMs = (window as any).buildURLWithUTMs ? (window as any).buildURLWithUTMs(baseUrl) : baseUrl;
+              window.open(urlWithUTMs, '_blank');
             }}
             size="lg" 
             className="w-full md:w-auto text-lg md:text-xl px-8 md:px-12 py-4 md:py-6 bg-primary hover:bg-primary/90 text-white shadow-strong hover:shadow-medium transition-all"

@@ -6,7 +6,9 @@ import { Check } from "lucide-react";
 
 export const Pricing = () => {
   const handleCheckout = () => {
-    window.open('https://plataforma.alertasaude.com.br/cadastro', '_blank');
+    const baseUrl = 'https://plataforma.alertasaude.com.br/cadastro';
+    const urlWithUTMs = (window as any).buildURLWithUTMs ? (window as any).buildURLWithUTMs(baseUrl) : baseUrl;
+    window.open(urlWithUTMs, '_blank');
   };
   const individualFeatures = [
     "Consultas ilimitadas",

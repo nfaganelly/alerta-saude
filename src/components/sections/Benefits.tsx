@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Check, Clock, Users, Stethoscope, DollarSign } from "lucide-react";
+import heroAtendimento from "@/assets/hero-atendimento.jpg";
 
 export const Benefits = () => {
   const benefits = [
@@ -34,7 +35,7 @@ export const Benefits = () => {
                 return (
                   <div key={index} className="flex items-start gap-4">
                     <div className="w-6 h-6 rounded-full bg-secondary flex items-center justify-center flex-shrink-0 mt-1">
-                      <Check className="w-4 h-4 text-white" />
+                      <Check className="w-4 h-4 text-secondary-foreground" />
                     </div>
                     <p className="text-lg">{benefit.text}</p>
                   </div>
@@ -49,10 +50,9 @@ export const Benefits = () => {
               
               <Button 
                 onClick={() => {
-                  const pricingSection = document.getElementById('pricing');
-                  if (pricingSection) {
-                    pricingSection.scrollIntoView({ behavior: 'smooth' });
-                  }
+                  const baseUrl = 'https://plataforma.alertasaude.com.br/cadastro';
+                  const urlWithUTMs = (window as any).buildURLWithUTMs ? (window as any).buildURLWithUTMs(baseUrl) : baseUrl;
+                  window.open(urlWithUTMs, '_blank');
                 }}
                 size="lg" 
                 className="shadow-medium hover:shadow-strong transition-all"
@@ -62,11 +62,12 @@ export const Benefits = () => {
             </div>
           </div>
 
-          <div className="bg-health-gray rounded-2xl p-8 flex items-center justify-center min-h-[400px]">
-            <div className="text-center text-muted-foreground">
-              <Users className="w-24 h-24 mx-auto mb-4 opacity-20" />
-              <p>Imagem de pessoa em atendimento online</p>
-            </div>
+          <div className="rounded-2xl overflow-hidden">
+            <img 
+              src={heroAtendimento} 
+              alt="Pessoa em atendimento médico online"
+              className="w-full h-full object-cover min-h-[400px]"
+            />
           </div>
         </div>
       </div>

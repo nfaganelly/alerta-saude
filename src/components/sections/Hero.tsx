@@ -2,8 +2,37 @@ import { Button } from "@/components/ui/button";
 import { PriceBadge } from "@/components/ui/price-badge";
 import { Badge } from "@/components/ui/badge";
 import heroImage from "@/assets/hero-image.jpg";
+import { useState, useEffect } from "react";
+
+const headlineVariants = {
+  a: {
+    title: "Médico online 24h, sempre que você precisar — por apenas R$18,90/mês",
+    subtitle: "👉 Consultas ilimitadas e sem carência."
+  },
+  b: {
+    title: "Chega de filas, altos custos e espera.",
+    subtitle: "👉 Tenha consultas ilimitadas com médicos especialistas por R$18,90/mês."
+  },
+  c: {
+    title: "Sua saúde com inteligência artificial e médicos 24h.",
+    subtitle: "👉 Tudo em um só lugar por apenas R$18,90/mês."
+  }
+};
 
 export const Hero = () => {
+  const [headlineVariant, setHeadlineVariant] = useState('a');
+  const [isLoaded, setIsLoaded] = useState(false);
+
+  useEffect(() => {
+    // Obtém a variante do headline do script global
+    if (typeof window !== 'undefined' && (window as any).getHeadlineVariant) {
+      const variant = (window as any).getHeadlineVariant();
+      setHeadlineVariant(variant);
+    }
+    setIsLoaded(true);
+  }, []);
+
+  const currentVariant = headlineVariants[headlineVariant as keyof typeof headlineVariants] || headlineVariants.a;
   return (
     <section className="min-h-screen bg-background">
       <div className="container mx-auto px-4 md:px-6 lg:px-8 py-8 md:py-12">
@@ -11,13 +40,26 @@ export const Hero = () => {
           {/* Content */}
           <div className="space-y-6 md:space-y-8 order-2 lg:order-1">
             <div className="space-y-3 md:space-y-4">
-              <h1 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight">
-                Saúde no bolso, no tempo e na{" "}
-                <span className="text-primary">palma da mão</span>
-              </h1>
-              <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
-                Não dependa mais de filas, burocracia ou altos custos para cuidar da sua saúde.
-              </p>
+              {isLoaded ? (
+                <>
+                  <h1 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight">
+                    {currentVariant.title}
+                  </h1>
+                  <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
+                    {currentVariant.subtitle}
+                  </p>
+                </>
+              ) : (
+                <>
+                  <h1 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight">
+                    Saúde no bolso, no tempo e na{" "}
+                    <span className="text-primary">palma da mão</span>
+                  </h1>
+                  <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
+                    Não dependa mais de filas, burocracia ou altos custos para cuidar da sua saúde.
+                  </p>
+                </>
+              )}
             </div>
 
             <div className="space-y-3 md:space-y-4">

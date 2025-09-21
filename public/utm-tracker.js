@@ -68,9 +68,29 @@
     };
   };
   
-  // Função global para construir URL com UTMs
+  // Função para gerenciar teste A/B de headlines
+  function initializeHeadlineTest() {
+    let variant = getCookie('headline_variant');
+    
+    if (!variant) {
+      // Gera aleatoriamente A, B ou C (distribuição igual)
+      const variants = ['a', 'b', 'c'];
+      variant = variants[Math.floor(Math.random() * variants.length)];
+      setCookie('headline_variant', variant, 90);
+    }
+    
+    return variant;
+  }
+  
+  // Função global para obter a variante atual do headline
+  window.getHeadlineVariant = function() {
+    return getCookie('headline_variant') || 'a';
+  };
+  
+  // Função global para construir URL com UTMs e headline variant
   window.buildURLWithUTMs = function(baseUrl) {
     const utmParams = window.getUTMParams();
+    const headlineVariant = window.getHeadlineVariant();
     const url = new URL(baseUrl);
     
     Object.keys(utmParams).forEach(key => {
@@ -79,9 +99,17 @@
       }
     });
     
+    // Adiciona a variante do headline para métricas
+    if (headlineVariant) {
+      url.searchParams.set('headline', headlineVariant);
+    }
+    
     return url.toString();
   };
   
   // Executa o tracking quando a página carrega
   trackUTMParams();
+  
+  // Inicializa o teste A/B de headlines
+  initializeHeadlineTest();
 })();

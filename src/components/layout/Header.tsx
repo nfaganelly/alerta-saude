@@ -17,7 +17,7 @@ export const Header = () => {
             <img 
               src="https://plataforma.alertasaude.com.br/assets/images/logo.png" 
               alt="Alerta Saúde" 
-              className="h-8 md:h-12 w-auto"
+              className="h-12 md:h-14 w-auto"
               onError={(e) => {
                 // Fallback para ícone local se a imagem não carregar
                 e.currentTarget.style.display = 'none';

@@ -23,8 +23,8 @@ export const Hero = () => {
             <div className="space-y-3 md:space-y-4">
               <div className="flex flex-col md:flex-row md:items-center gap-3 md:gap-4">
                 <PriceBadge price="R$ 18,90" popular />
-                <p className="text-base md:text-lg font-medium">
-                  Teleconsultas ilimitadas + IA Diagnóstica
+                <p className="text-lg md:text-xl font-extrabold text-primary">
+                  🩺 Teleconsultas ilimitadas + IA Diagnóstica
                 </p>
               </div>
               
